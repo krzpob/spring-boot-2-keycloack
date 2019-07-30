@@ -1,0 +1,13 @@
+server:
+  port: 8081
+keycloak:
+  cors: true
+  auth-server-url: http://localhost:8080/auth/
+  realm: springBootRealm
+  ssl-required: external
+  principal-attribute: preferred_username
+  bearer-only: true
+  resource: api-client
+  confidential-port: 0
+  credentials:
+    secret: 539421f8-67de-43c7-9e74-38b03cfa20d0
