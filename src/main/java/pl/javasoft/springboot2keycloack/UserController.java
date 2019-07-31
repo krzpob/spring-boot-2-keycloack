@@ -3,8 +3,11 @@ package pl.javasoft.springboot2keycloack;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.Collections;
+import java.util.Map;
 
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import pl.javasoft.springboot2keycloack.dto.LoginDTO;
 import pl.javasoft.springboot2keycloack.dto.ResponseDTO;
+import reactor.core.publisher.Mono;
 
 @RestController
 @AllArgsConstructor
@@ -21,9 +25,14 @@ public class UserController {
 
 
     @CrossOrigin(allowCredentials = "true", value = "http://localhost:3000")
-    @GetMapping("/user")
+    @GetMapping(value = "/user")
     public UserDTO user(Principal keycloakPrincipal){
         return new UserDTO(keycloakPrincipal);
+    }
+
+    @GetMapping("/admin")
+    public Mono<Map<String, Object>> admin(){
+        return Mono.just(Collections.singletonMap("message", "HelloWorld"));
     }
 
     @PostMapping("/login")
