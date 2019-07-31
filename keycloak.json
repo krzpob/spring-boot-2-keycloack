@@ -1,0 +1,14 @@
+
+
+{
+  "realm": "springBootRealm",
+  "auth-server-url": "http://localhost:8080/auth",
+  "ssl-required": "external",
+  "resource": "api-client",
+  "verify-token-audience": true,
+  "credentials": {
+    "secret": "539421f8-67de-43c7-9e74-38b03cfa20d0"
+  },
+  "confidential-port": 0,
+  "policy-enforcer": {}
+}

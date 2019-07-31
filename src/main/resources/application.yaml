@@ -1,0 +1,15 @@
+server:
+  port: 8081
+
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/auth/realms/springBootRealm
+
+        registration:
+          keycloak:
+            clientd-id: admin-cli
+            client-secret: 539421f8-67de-43c7-9e74-38b03cfa20d0
